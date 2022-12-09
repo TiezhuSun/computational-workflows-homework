@@ -22,6 +22,9 @@ The email should contain a link to a GitHub repository with:
 
     ```
     # Add your commands here
+    git add README.md
+    git commit -m "init repo & add README.md"
+    git push
     ```
 * A `wallet.py` file that passes the unit tests.
 * A `Dockerfile`.
@@ -83,6 +86,11 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+touch Dockerfile
+vim Dockerfile
+git add Dockerfile
+git commit -m "init Dockerfile"
+git push
 ```
 
 ## Build and push Docker image
@@ -93,6 +101,10 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+docker build .
+docker login
+docker tag d2206ce98d65 tiezhusun/computational-workflows
+docker push tiezhusun/computational-workflows
 ```
 
 ## Run a container, and share in files from the host.
@@ -103,6 +115,7 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+docker run -ti -v $(pwd):/root/shared tiezhusun/computational-workflows bash
 ```
 
 ## Setup a simple Python test suite
@@ -114,6 +127,9 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+git add *py
+git commit -m "init python test suite"
+git push
 ```
 
 2. Start a Docker container using your image and share your repository into a
@@ -121,6 +137,7 @@ RUN apt-get -y update && \
 
 ```
 # Add your commands here
+docker run -ti -v $(pwd):/root/shared tiezhusun/computational-workflows bash
 ```
 
 3. Run the tests inside the container by going to `/root/shared` and running the
